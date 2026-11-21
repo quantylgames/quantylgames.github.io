@@ -1,0 +1,66 @@
+/* Лакомка — общий стиль сайта. Палитра приложения (AccentColor: терракота #B5532A / #E08A5B), без внешних шрифтов и трекеров. */
+:root {
+  --bg: #F8F1E5; --surface: #FFFBF4; --ink: #2B211B; --stone: #7A6A5E; --hairline: #E7DACA;
+  --accent: #B5532A; --accent-ink: #FFFFFF; --tint: #F3E1D2; --leaf: #D98A5F;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1A1512; --surface: #251E19; --ink: #F3EADF; --stone: #B3A497; --hairline: #3A3029;
+          --accent: #E08A5B; --accent-ink: #1A1512; --tint: #352820; --leaf: #C8744A; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); text-underline-offset: 3px; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+header.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 0; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 21px;
+         font-family: ui-serif, "New York", Georgia, "Times New Roman", serif; }
+.brand img { width: 40px; height: 40px; border-radius: 10px; }
+nav.links { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+nav.links a { text-decoration: none; color: var(--ink); padding: 6px 12px; border-radius: 999px; font-size: 15px; }
+nav.links a[aria-current="page"] { background: var(--tint); color: var(--accent); font-weight: 600; }
+nav.links a.lang { border: 1px solid var(--hairline); color: var(--stone); }
+h1, h2, h3 { font-family: ui-serif, "New York", Georgia, "Times New Roman", serif; line-height: 1.2; }
+h1 { font-size: clamp(32px, 6vw, 52px); margin: 24px 0 12px; letter-spacing: -0.01em; }
+h2 { font-size: 27px; margin: 40px 0 12px; }
+h3 { font-size: 19px; margin: 24px 0 6px; }
+.lead { font-size: 20px; color: var(--stone); max-width: 640px; }
+.hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; padding: 24px 0 8px; }
+.hero .icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(120, 60, 30, .18); }
+.shots { display: flex; gap: 16px; justify-content: center; }
+.shots img { width: 48%; max-width: 240px; border-radius: 26px; box-shadow: 0 20px 50px rgba(120, 60, 30, .18); }
+.shots img:nth-child(2) { margin-top: 40px; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 16px 0; }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; border-radius: 22px; box-shadow: 0 12px 30px rgba(120, 60, 30, .14); }
+.gallery figcaption { color: var(--stone); font-size: 14px; text-align: center; margin-top: 8px; }
+.cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; padding: 14px 22px; border-radius: 999px;
+       background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 600; }
+.note { color: var(--stone); font-size: 14px; margin-top: 10px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 16px 0; }
+.card { background: var(--surface); border-radius: 22px; padding: 20px 22px; border: 1px solid var(--hairline); }
+.card h3 { margin-top: 0; }
+.card p { margin: 0; color: var(--stone); }
+.prose { background: var(--surface); border-radius: 26px; padding: 8px 28px 24px; margin: 16px 0; border: 1px solid var(--hairline); }
+.prose ul { padding-left: 20px; }
+.prose li { margin: 6px 0; }
+table.plans { border-collapse: collapse; width: 100%; margin: 12px 0; }
+table.plans th, table.plans td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--hairline); vertical-align: top; }
+details { background: var(--surface); border-radius: 18px; padding: 14px 20px; margin: 10px 0; border: 1px solid var(--hairline); }
+details summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+details summary::-webkit-details-marker { display: none; }
+details summary::after { content: "＋"; color: var(--stone); flex-shrink: 0; }
+details[open] summary::after { content: "－"; }
+details p, details ul { color: var(--ink); margin: 10px 0 0; }
+.disclaimer { border-left: 4px solid var(--leaf); padding: 12px 16px; background: var(--tint); border-radius: 12px; }
+footer { color: var(--stone); font-size: 14px; padding: 40px 0 48px; border-top: 1px solid var(--hairline); margin-top: 48px; }
+footer a { color: var(--stone); }
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; }
+  .prose { padding: 4px 18px 18px; }
+  header.top { flex-wrap: wrap; }
+}
